@@ -19,12 +19,12 @@ for k,i in enumerate(data):
     route[k] = set()
     for move in i:
        for j in range(int(move[1:])):
-          pos,mul = Move[move[0]]
+          pos, mul = Move[move[0]]
           current[pos] += 1*mul
           route[k].add(tuple(current))
 
 
-print(min(map(sum, [(abs(x[0]),abs(x[1])) for x in  (route[0] & route[1])])))
+print(min([abs(x[0]) + abs(x[1]) for x in route[0] & route[1]]))
 
 
 #part 2
@@ -35,7 +35,7 @@ for k,i in enumerate(data):
     route[k] = []
     for move in i:
        for j in range(int(move[1:])):
-          pos,mul = Move[move[0]]
+          pos, mul = Move[move[0]]
           current[pos] += 1*mul
           route[k].append(tuple(current))
 
